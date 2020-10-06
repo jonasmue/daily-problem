@@ -1,4 +1,4 @@
-def can_move_forward(front_char, rear_char, distinct_characters, k):
+def can_move_forward(front_char, distinct_characters, k):
     character_set = distinct_characters.keys()
     return front_char in character_set or len(character_set) < k
 
@@ -16,7 +16,7 @@ def longest_substring_with_k_distinct_characters(s, k):
         front_char = s[fast_pointer]
         rear_char = s[slow_pointer]
 
-        if can_move_forward(front_char, rear_char, distinct_characters, k):
+        if can_move_forward(front_char, distinct_characters, k):
             distinct_characters[front_char] = distinct_characters.get(front_char, 0) + 1
             fast_pointer += 1
         else:
